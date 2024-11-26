@@ -4,20 +4,15 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Сборка приложения...'
+                echo 'Сборка приложения...' // Ваши шаги сборки
             }
         }
+        // Добавьте другие стадии здесь
+    }
 
-        stage('Test') {
-            steps {
-                echo 'Тестирование приложения...'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Развёртывание приложения...'
-            }
+    post {
+        always {
+            deleteDir()
         }
     }
 }
