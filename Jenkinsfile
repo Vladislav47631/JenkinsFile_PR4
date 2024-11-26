@@ -1,18 +1,15 @@
 pipeline {
     agent any
 
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Сборка приложения...' // Ваши шаги сборки
-            }
-        }
-        // Добавьте другие стадии здесь
+    environment {
+        MY_GLOBAL_VARIABLE = 'value'
     }
 
-    post {
-        always {
-            deleteDir()
+    stages {
+        stage('Example') {
+            steps {
+                echo "Значение моей глобальной переменной: ${env.MY_GLOBAL_VARIABLE}"
+            }
         }
     }
 }
